@@ -1342,7 +1342,7 @@ async function handleSaveCpaService(e) {
         return;
     }
     if (!id && !apiToken) {
-        toast.error('新增服务时 API Token 不能为空');
+        toast.error('新增服务时 Management Key 不能为空');
         return;
     }
 
@@ -1401,7 +1401,7 @@ async function handleTestCpaService() {
     }
     // 新增时必须有 token，编辑时 token 可为空（用已保存的）
     if (!id && !apiToken) {
-        toast.error('请先填写 API Token');
+        toast.error('请先填写 Management Key');
         return;
     }
 

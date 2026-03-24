@@ -267,7 +267,7 @@ def test_cpa_connection(api_url: str, api_token: str, proxy: str = None) -> Tupl
 
     Args:
         api_url: CPA API URL
-        api_token: CPA API Token
+        api_token: CPA Management Key
         proxy: 保留参数，不使用（CPA 始终直连）
 
     Returns:
@@ -277,7 +277,7 @@ def test_cpa_connection(api_url: str, api_token: str, proxy: str = None) -> Tupl
         return False, "API URL 不能为空"
 
     if not api_token:
-        return False, "API Token 不能为空"
+        return False, "Management Key 不能为空"
 
     test_url = _normalize_cpa_auth_files_url(api_url)
     headers = _build_cpa_headers(api_token)
@@ -294,7 +294,7 @@ def test_cpa_connection(api_url: str, api_token: str, proxy: str = None) -> Tupl
         if response.status_code == 200:
             return True, "CPA 连接测试成功"
         if response.status_code == 401:
-            return False, "连接成功，但 API Token 无效"
+            return False, "连接成功，但 Management Key 无效。请填写 CPA remote-management.secret-key 的明文值，而不是 api-keys"
         if response.status_code == 403:
             return False, "连接成功，但服务端未启用远程管理或当前 Token 无权限"
         if response.status_code == 404:

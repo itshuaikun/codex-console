@@ -404,8 +404,9 @@
                                 <p class="hint">支持填写根地址、`/v0/management` 或完整的 `/v0/management/auth-files` 地址</p>
                             </div>
                             <div class="form-group">
-                                <label for="cpa-service-token">API Token</label>
+                                <label for="cpa-service-token">Management Key</label>
                                 <input type="password" id="cpa-service-token" placeholder="编辑时留空则保持原值" autocomplete="new-password">
+                                <p class="hint">这里要填 CPA `remote-management.secret-key` 的明文管理密钥，不是 `api-keys`</p>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">

@@ -166,6 +166,6 @@ async def test_cpa_service(service_id: int):
 async def test_cpa_connection_direct(request: CpaServiceTestRequest):
     """直接测试 CPA 连接（用于添加前验证）"""
     if not request.api_url or not request.api_token:
-        raise HTTPException(status_code=400, detail="api_url 和 api_token 不能为空")
+        raise HTTPException(status_code=400, detail="api_url 和 management key 不能为空")
     success, message = test_cpa_connection(request.api_url, request.api_token)
     return {"success": success, "message": message}
